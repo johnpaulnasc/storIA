@@ -1,3 +1,42 @@
+"""
+model_beam_test.py
+
+Descrição:
+Este script utiliza a biblioteca Transformers para carregar e gerar texto com um modelo de linguagem GPT-2 ajustado. Ele inclui funcionalidades para:
+- Tokenizar o texto de entrada.
+- Gerar texto utilizando o método de Beam Search.
+- Configurar parâmetros como penalidade por repetição, temperatura, e tamanho do texto gerado.
+
+Principais Funcionalidades:
+- Carrega um modelo GPT-2 ajustado a partir de um diretório local.
+- Realiza a tokenização com tokens de início e fim personalizados.
+- Utiliza o método de geração `generate` com Beam Search para produzir texto.
+- Exibe o texto gerado com parâmetros específicos.
+
+Parâmetros de Geração:
+- `num_beams`: Número de feixes para Beam Search.
+- `max_length`: Tamanho máximo do texto gerado.
+- `min_length`: Tamanho mínimo do texto gerado.
+- `no_repeat_ngram_size`: Restringe a repetição de n-gramas.
+- `repetition_penalty`: Penalidade para palavras repetidas.
+- `temperature`: Controla a aleatoriedade na geração de texto.
+- `early_stopping`: Para a geração assim que todos os feixes chegarem ao token final.
+
+Dependências:
+- transformers: Biblioteca para modelos de linguagem.
+- random: Para geração de seeds aleatórias.
+
+Exemplo de Uso:
+1. Configure o caminho do modelo ajustado em `model_path`.
+2. Insira o texto inicial em `inputs`.
+3. Ajuste os parâmetros do método `generate` para personalizar o texto gerado.
+4. Execute o script para gerar texto com Beam Search.
+
+Nota:
+Certifique-se de que o modelo ajustado está presente no caminho especificado e que as dependências necessárias estão instaladas.
+"""
+
+
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 from transformers import pipeline, set_seed
 import random

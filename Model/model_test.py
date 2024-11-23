@@ -1,3 +1,45 @@
+"""
+model_test.py
+
+Descrição:
+Este script utiliza a biblioteca Transformers para carregar e testar um modelo GPT-2 ajustado, permitindo a geração de texto por diferentes métodos e configurações. Ele implementa:
+- Geração de texto com `pipeline`.
+- Métodos avançados como Beam Search e amostragem com Top-K e Top-P.
+- Variação nos parâmetros de temperatura, penalidade de repetição, e número de feixes.
+
+Principais Funcionalidades:
+- Carrega um modelo ajustado a partir de um diretório local.
+- Tokeniza e processa o texto de entrada.
+- Realiza a geração de texto com diversos métodos para comparar resultados:
+  - Pipeline simples.
+  - Beam Search.
+  - Amostragem com Top-K e Top-P.
+- Exibe as histórias geradas no console para avaliação.
+
+Parâmetros de Geração:
+- `top_k`: Limita as escolhas do modelo às palavras mais prováveis dentro do K.
+- `top_p`: Probabilidade acumulada para filtrar palavras, usando amostragem Nucleus.
+- `num_beams`: Número de feixes para Beam Search.
+- `max_length` e `min_length`: Controlam o tamanho do texto gerado.
+- `temperature`: Controla a aleatoriedade do texto gerado.
+- `repetition_penalty`: Penaliza palavras repetidas para maior diversidade.
+- `do_sample`: Ativa amostragem ao invés de buscas determinísticas.
+
+Dependências:
+- transformers: Biblioteca para manipulação de modelos de linguagem.
+- random: Gera seeds aleatórias para controlar a repetibilidade.
+
+Exemplo de Uso:
+1. Configure o caminho do modelo ajustado em `model_path`.
+2. Insira o texto inicial em `inputs`.
+3. Execute o script para gerar histórias com diferentes configurações.
+4. Analise os resultados no console.
+
+Nota:
+Certifique-se de que o modelo ajustado está presente no caminho especificado e que as dependências estão instaladas.
+"""
+
+
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 from transformers import pipeline, set_seed
 import random

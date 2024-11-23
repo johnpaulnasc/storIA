@@ -1,3 +1,26 @@
+"""
+app.py
+
+Descrição:
+Este arquivo define o aplicativo Flask que serve como backend para o projeto. Ele contém rotas para renderizar páginas HTML e processar requisições enviadas pelo usuário. Inclui lógica para manipulação de dados e comunicação com utilitários externos.
+
+Rotas disponíveis:
+- "/" (GET): Renderiza a página inicial.
+- "/submit" (POST, GET): Processa dados enviados por um formulário, realiza manipulações e retorna sugestões.
+- "/social" (GET): Renderiza a página social.
+- "/members" (GET): Renderiza a página de membros.
+
+Dependências:
+- Flask: Framework web usado para construir o servidor e gerenciar rotas.
+- utils: Módulo externo contendo funções utilitárias.
+- test: Módulo contendo funções para manipulação de tokens e consulta de modelos.
+
+Como executar:
+1. Certifique-se de ter instalado as dependências necessárias (`Flask`).
+2. Execute este script para iniciar o servidor: `python app.py`.
+3. Acesse o aplicativo no navegador em `http://127.0.0.1:5000/`.
+"""
+
 from flask import Flask, render_template, request
 import utils
 from test import *

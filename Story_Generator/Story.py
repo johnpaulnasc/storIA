@@ -1,3 +1,41 @@
+"""
+Story.py
+
+Descrição:
+Este script define a classe `Story_generator` que fornece uma interface para carregar um modelo GPT-2 ajustado e gerar histórias com base em um texto de entrada. A classe encapsula toda a lógica de pré-processamento do texto, configuração do modelo, e geração de texto com opções personalizáveis.
+
+Principais Funcionalidades:
+- Carregamento de um modelo GPT-2 ajustado a partir de um caminho especificado.
+- Pré-processamento do texto de entrada para garantir consistência e adequação ao modelo.
+- Geração de histórias com parâmetros ajustáveis, como comprimento máximo, temperatura, penalidade de repetição, e Beam Search.
+
+Classes e Métodos:
+- `Story_generator`: Classe principal para geração de histórias.
+  - `__init__`: Inicializa o modelo e o tokenizer.
+  - `clean_text(text)`: Remove espaços no final, converte o texto para minúsculas, e adiciona o token inicial.
+  - `generate_story(text, size, temperature)`: Gera uma história com base no texto fornecido e nos parâmetros de configuração.
+
+Parâmetros de Geração:
+- `size`: Número máximo de palavras adicionais a serem geradas.
+- `temperature`: Controla a aleatoriedade na escolha das próximas palavras.
+- `repetition_penalty`: Penaliza repetições para aumentar a diversidade do texto.
+- `num_beams`: Número de feixes usados no Beam Search.
+- `no_repeat_ngram_size`: Evita a repetição de n-gramas específicos.
+
+Dependências:
+- transformers: Biblioteca para manipulação de modelos de linguagem.
+- random: Gera seeds aleatórias para experimentação.
+
+Exemplo de Uso:
+1. Crie uma instância da classe `Story_generator`.
+2. Use o método `generate_story` para criar uma história com base em texto inicial.
+3. Personalize os parâmetros de geração para obter diferentes estilos de texto.
+
+Nota:
+Certifique-se de que o modelo ajustado está no caminho especificado e que as dependências necessárias estão instaladas corretamente.
+"""
+
+
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 from transformers import set_seed
 import random

@@ -1,3 +1,37 @@
+"""
+test2.py
+
+Descrição:
+Este script utiliza a biblioteca Transformers para carregar e testar a geração de texto de um modelo GPT-2 ajustado (versão 3.0). Ele implementa o método Beam Search com configurações específicas para criar uma história contínua baseada no texto inicial fornecido.
+
+Principais Funcionalidades:
+- Carrega o modelo GPT-2 ajustado a partir de um diretório local.
+- Tokeniza o texto de entrada, adicionando tokens de início e fim.
+- Gera texto usando o método `generate` com parâmetros configuráveis.
+- Exibe o texto gerado no console para análise.
+
+Parâmetros de Geração:
+- `max_length`: Comprimento máximo do texto gerado.
+- `min_length`: Comprimento mínimo do texto gerado.
+- `num_return_sequences`: Número de sequências geradas.
+- `repetition_penalty`: Penaliza palavras repetidas para maior diversidade.
+- `temperature`: Controla a aleatoriedade do texto gerado.
+
+Dependências:
+- transformers: Biblioteca para modelos de linguagem.
+- random: Para geração de seeds aleatórias.
+
+Exemplo de Uso:
+1. Configure o caminho do modelo ajustado em `model_path`.
+2. Insira o texto inicial em `inputs`.
+3. Execute o script para gerar uma história com o método Beam Search.
+4. Analise o texto gerado exibido no console.
+
+Nota:
+Certifique-se de que o modelo ajustado está presente no caminho especificado e que as dependências necessárias estão instaladas.
+"""
+
+
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 from transformers import pipeline, set_seed
 import random
